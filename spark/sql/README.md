@@ -1,4 +1,4 @@
-park SQL
+## Spark SQL
 Spark SQL uses a very generic tree data structure which extends Scala's `Product` class. This is a bit tricky - for example
 there is a method to get children by just taking any of the items inside the constructor of case classes (the fields of the
 product) that are the same type of that tree. You must implement it with a case class. 
@@ -10,6 +10,9 @@ A plan representing how to accomplish it. There could potentially be many of the
 chooses the best one.
 ## Expression
 e.g. Add()
+An expression is something that is computed from other columns.
+An attribute is an expression. An attribute is either an actual input column, or the name of a column which is computed.
+`SELECT a, b, a + b as mysum
 ## Strategy
 A strategy transforms a logical plan to a Spark plan. If there is a logical plan node in a tree and there is no strategy for
 how to deal with it, then things will blow up.
